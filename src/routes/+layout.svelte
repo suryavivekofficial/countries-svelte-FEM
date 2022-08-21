@@ -1,6 +1,8 @@
 <script lang="ts">
-	import Nav from '../lib/components/Nav.svelte';
+	import Nav from '$lib/components/Nav.svelte';
+	import Search from '$lib/components/Search.svelte';
 	import { isDarktheme } from '../lib/stores/themeStore';
+
 	import '../app.css';
 </script>
 
@@ -13,15 +15,18 @@
 	/>
 </svelte:head>
 
-<div class="{$isDarktheme ? `dark` : ``} h-screen w-screen">
-	<div class="h-full w-full bg-lightGray text-darkBlueText dark:bg-darkBlueBg dark:text-white">
+<div class={$isDarktheme ? `dark` : ``}>
+	<div
+		class="min-h-screen w-full bg-lightGray text-darkBlueText dark:bg-darkBlueBg dark:text-white"
+	>
 		<Nav />
+		<Search />
 		<slot />
 	</div>
 </div>
 
 <style>
-	div {
+	* {
 		font-family: 'Nunito Sans', sans-serif;
 	}
 </style>

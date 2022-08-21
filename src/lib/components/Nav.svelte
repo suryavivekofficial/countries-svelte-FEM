@@ -10,24 +10,23 @@
 	$: moonIcon = $isDarktheme ? moonFillPath : moonOutlinePath;
 </script>
 
-<header class="w-screen p-4 drop-shadow-2xl bg-white dark:bg-darkBlueBg">
-	<nav class="flex justify-between items-center text-sm">
-		<h1 class="font-extrabold">Where in the world?</h1>
+<header class="p-4 drop-shadow-sm bg-white dark:bg-darkBlue md:px-6 lg:px-8">
+	<nav class="flex justify-between items-center">
+		<h1 class="text-lg font-extrabold">Where in the world?</h1>
 		<button
 			on:click={() => isDarktheme.set(!$isDarktheme)}
-			class="flex justify-between items-center py-4 dark:bg-black dark:text-darkBlue"
+			class="flex space-x-2 justify-between items-center py-4"
 		>
 			<svg
-				class="mr-3"
 				xmlns="http://www.w3.org/2000/svg"
-				width="16"
-				height="16"
+				width="14"
+				height="14"
 				fill="currentColor"
 				viewBox="0 0 16 16"
 			>
 				<path d={moonIcon} />
 			</svg>
-			<span>Dark Mode</span>
+			<span class="text-sm">Dark Mode</span>
 		</button>
 	</nav>
 </header>
