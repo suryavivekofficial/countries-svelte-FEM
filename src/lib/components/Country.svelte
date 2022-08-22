@@ -5,7 +5,7 @@
 		// console.log(country.cca2);
 		// countrySelected.set(country.cca2);
 		// console.log($countrySelected);
-		window.location.replace(`/detail/${country.cca2}`);
+		window.location.replace(`/${country.cca2}`);
 	};
 
 	export let country: any;
@@ -22,7 +22,7 @@
 	<div class="p-4 space-y-4">
 		<h3 class="text-xl font-semibold">{country.name.common}</h3>
 		<div>
-			<h6>Population: {country.population}</h6>
+			<h6>Population: {country.population.toLocaleString('en-US')}</h6>
 			<h6>Region: {country.region}</h6>
 			<h6>Capital: {country.capital}</h6>
 		</div>
