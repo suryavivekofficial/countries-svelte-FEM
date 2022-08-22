@@ -1,7 +1,5 @@
 <script lang="ts">
 	export let data: any;
-	console.log(data);
-	console.log(data.nativeName[Object.keys(data.nativeName)[0]].common);
 </script>
 
 <div class="px-8">
@@ -68,7 +66,10 @@
 				</div>
 			</div>
 			<div>
-				<h6>Border countries</h6>
+				<span class="font-semibold">Border countries:</span>
+				{#each data.borders as border}
+					<span class="bg-white dark:bg-darkBlue py-2 px-4 rounded-md mx-2 text-xs">{border}</span>
+				{/each}
 			</div>
 		</div>
 	</section>

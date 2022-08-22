@@ -3,6 +3,7 @@ export async function load({ params, fetch }) {
 		const res = await fetch(`https://restcountries.com/v3.1/alpha/${params.slug}`);
 		const data = await res.json();
 		const country = data[0];
+		console.log(country.borders);
 		return {
 			name: country.name.common,
 			nativeName: country.name.nativeName,
@@ -13,7 +14,8 @@ export async function load({ params, fetch }) {
 			capitals: country.capital,
 			tld: country.tld,
 			currencies: country.currencies,
-			languages: country.languages
+			languages: country.languages,
+			borders: country.borders
 		};
 	} catch (error) {
 		console.error(404, 'Not found');
