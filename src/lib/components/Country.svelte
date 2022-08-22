@@ -1,13 +1,26 @@
 <script lang="ts">
+	// import { countrySelected } from '../stores/countryStore';
+
+	const selectCountry = () => {
+		// console.log(country.cca2);
+		// countrySelected.set(country.cca2);
+		// console.log($countrySelected);
+		window.location.replace(`/detail/${country.cca2}`);
+	};
+
 	export let country: any;
 </script>
 
-<div>
-	<div>
-		<img src={country.flags.png} alt={country.name.common} />
+<div on:click={selectCountry} class="bg-white dark:bg-darkBlue rounded-md drop-shadow-md">
+	<div class="rounded-t-md h-1/2">
+		<img
+			class="rounded-t-md h-full w-full object-cover"
+			src={country.flags.png}
+			alt={country.name.common}
+		/>
 	</div>
-	<div>
-		<h3>{country.name.common}</h3>
+	<div class="p-4 space-y-4">
+		<h3 class="text-xl font-semibold">{country.name.common}</h3>
 		<div>
 			<h6>Population: {country.population}</h6>
 			<h6>Region: {country.region}</h6>

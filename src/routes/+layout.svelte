@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Nav from '$lib/components/Nav.svelte';
-	import Search from '$lib/components/Search.svelte';
 	import { isDarktheme } from '../lib/stores/themeStore';
 
 	import '../app.css';
@@ -13,6 +12,7 @@
 		href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap"
 		rel="stylesheet"
 	/>
+	<title>Country</title>
 </svelte:head>
 
 <div class={$isDarktheme ? `dark` : ``}>
@@ -20,7 +20,6 @@
 		class="min-h-screen w-full bg-lightGray text-darkBlueText dark:bg-darkBlueBg dark:text-white"
 	>
 		<Nav />
-		<Search />
 		<slot />
 	</div>
 </div>

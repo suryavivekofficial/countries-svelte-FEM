@@ -10,7 +10,7 @@
 	$: moonIcon = $isDarktheme ? moonFillPath : moonOutlinePath;
 </script>
 
-<header class="p-4 drop-shadow-sm bg-white dark:bg-darkBlue md:px-6 lg:px-8">
+<header class="p-4 drop-shadow bg-white dark:bg-darkBlue md:px-6 lg:px-8">
 	<nav class="flex justify-between items-center">
 		<h1 class="text-lg font-extrabold">Where in the world?</h1>
 		<button

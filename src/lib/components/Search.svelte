@@ -8,7 +8,7 @@
 
 <div class="px-4 py-6 md:px-6 lg:px-8 flex justify-between items-center">
 	<div
-		class="bg-white dark:bg-darkBlue rounded-md flex space-x-4 px-4 justify-around items-center drop-shadow w-1/3"
+		class="bg-white dark:bg-darkBlue rounded-md flex space-x-4 px-4 justify-around items-center drop-shadow-md w-1/3"
 	>
 		<span>
 			<svg
@@ -36,7 +36,7 @@
 			<button
 				on:click={() => ($isDropdown = !$isDropdown)}
 				type="button"
-				class="inline-flex justify-between items-center w-full rounded-md drop-shadow p-4 bg-white dark:bg-darkBlue"
+				class="inline-flex justify-between items-center w-full rounded-md drop-shadow-md p-4 bg-white dark:bg-darkBlue"
 				id="menu-button"
 				aria-expanded="true"
 				aria-haspopup="true"
@@ -74,7 +74,7 @@
   -->
 		<div
 			class="{$isDropdown ? '' : 'hidden'} 
-				origin-top-left absolute left-1 right-1 mt-3 shadow-lg bg-white dark:bg-darkBlue rounded-md"
+				z-10 origin-top-left absolute left-1 right-1 mt-3 shadow-lg bg-white dark:bg-darkBlue rounded-md"
 			role="menu"
 			aria-orientation="vertical"
 			aria-labelledby="menu-button"
