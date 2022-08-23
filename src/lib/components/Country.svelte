@@ -11,7 +11,10 @@
 	export let country: any;
 </script>
 
-<div on:click={selectCountry} class="bg-white dark:bg-darkBlue rounded-md drop-shadow-md">
+<div
+	on:click={selectCountry}
+	class="bg-white dark:bg-darkBlue rounded-md drop-shadow-md cursor-pointer hover:scale-105 duration-300"
+>
 	<div class="rounded-t-md h-1/2">
 		<img
 			class="rounded-t-md h-full w-full object-cover"

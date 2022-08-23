@@ -5,7 +5,7 @@
 <div class="px-8">
 	<a
 		href="/"
-		class="bg-darkBlue flex px-8 py-4 justify-center items-center my-4 rounded-md w-min space-x-4"
+		class="bg-white drop-shadow dark:bg-darkBlue flex px-8 py-4 justify-center items-center my-4 rounded-md w-min space-x-4"
 	>
 		<span>
 			<svg
@@ -31,33 +31,68 @@
 			<div class="flex justify-between">
 				<div>
 					<h6 class="font-semibold">
-						Native name: <span class="font-normal"
-							>{data.nativeName[Object.keys(data.nativeName)[0]].common}</span
-						>
+						Native name:
+						{#if data?.nativeName}
+							<span class="font-normal">
+								{data.nativeName[Object.keys(data.nativeName)[0]].common}
+							</span>
+						{:else}
+							<span class="font-normal">Data Unavailable</span>
+						{/if}
 					</h6>
 					<h6 class="font-semibold">
-						Population: <span class="font-normal">{data.population.toLocaleString('en-US')}</span>
+						Population:
+						{#if data?.population}
+							<span class="font-normal">{data.population.toLocaleString('en-US')}</span>
+						{:else}
+							<span class="font-normal">Data Unavailable</span>
+						{/if}
 					</h6>
 					<h6 class="font-semibold">
-						Region: <span class="font-normal">{data.region}</span>
+						Region:
+						{#if data?.region}
+							<span class="font-normal">{data.region}</span>
+						{:else}
+							<span class="font-normal">Data Unavailable</span>
+						{/if}
 					</h6>
 					<h6 class="font-semibold">
-						Sub region: <span class="font-normal">{data.subRegion}</span>
+						Sub region:
+						{#if data?.subRegion}
+							<span class="font-normal">{data.subRegion}</span>
+						{:else}
+							<span class="font-normal">Data Unavailable</span>
+						{/if}
 					</h6>
 					<h6 class="font-semibold">
 						Capital:
-						{#each data.capitals as capital}
-							<span class="font-normal">{capital}</span>
-						{/each}
+						{#if data?.capitals}
+							{#each data.capitals as capital}
+								<span class="font-normal">{capital}</span>
+							{:else}
+								<span class="font-normal">Data Unavailable</span>
+							{/each}
+						{/if}
 					</h6>
 				</div>
 				<div>
 					<h6 class="font-semibold">
-						Top level domain: <span class="font-normal">{data.tld}</span>
+						Top level domain:
+						{#if data?.tld}
+							<span class="font-normal">{data.tld}</span>
+						{:else}
+							<span class="font-normal">Data Unavailable</span>
+						{/if}
 					</h6>
 					<h6 class="font-semibold">
 						Currencies:
-						<span class="font-normal">{data.currencies[Object.keys(data.currencies)[0]].name}</span>
+						{#if data?.currencies}
+							<span class="font-normal">
+								{data.currencies[Object.keys(data.currencies)[0]].name}
+							</span>
+						{:else}
+							<span class="font-normal">Data Unavailable</span>
+						{/if}
 					</h6>
 					<h6 class="font-semibold">
 						Languages:
@@ -65,12 +100,26 @@
 					</h6>
 				</div>
 			</div>
-			<div>
-				<span class="font-semibold">Border countries:</span>
-				{#each data.borders as border}
-					<span class="bg-white dark:bg-darkBlue py-2 px-4 rounded-md mx-2 text-xs">{border}</span>
-				{/each}
+			<div class="flex">
+				<div class="font-semibold whitespace-nowrap m-2">Border countries:</div>
+				<div class="flex flex-wrap">
+					{#if data?.borders}
+						{#each data.borders as border}
+							<span class="bg-white dark:bg-darkBlue drop-shadow py-2 px-4 rounded-md m-2 text-xs"
+								>{border}</span
+							>
+						{/each}
+					{:else}
+						<span class="font-normal">Data Unavailable</span>
+					{/if}
+				</div>
 			</div>
 		</div>
 	</section>
 </div>
+
+<style>
+	.grid {
+		grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+	}
+</style>

@@ -1,33 +1,31 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Country from '$lib/components/Country.svelte';
 	import Search from '$lib/components/Search.svelte';
-
-	export let data: any;
+	import { countries } from '$lib/stores/countryStore';
 </script>
 
 <Search />
 
-<div class="grid gap-16 px-8 rounded mt-16">
-	{#each data.data as country}
+<div class="grid gap-16 px-8 rounded mt-16 relative">
+	{#each $countries as country}
 		<Country {country} />
 	{:else}
-		<!-- <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
-			<div class="animate-pulse flex space-x-4">
-				<div class="rounded-full bg-darkBlue h-10 w-10" />
-				<div class="flex-1 space-y-6 py-1">
-					<div class="h-2 bg-darkBlue rounded" />
-					<div class="space-y-3">
-						<div class="grid grid-cols-3 gap-4">
-							<div class="h-2 bg-darkBlue rounded col-span-2" />
-							<div class="h-2 bg-darkBlue rounded col-span-1" />
-						</div>
-						<div class="h-2 bg-darkBlue rounded" />
-					</div>
-				</div>
-			</div>
-		</div> -->
-
-		<p>loading...</p>
+		<div type="button" class=" absolute right-1/2 top-1/3 translate-x-2/4" disabled>
+			<svg
+				class="animate-spin h-8 w-8"
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 24 24"
+			>
+				<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+				<path
+					class="opacity-75"
+					fill="currentColor"
+					d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+				/>
+			</svg>
+		</div>
 	{/each}
 </div>
 
