@@ -1,10 +1,23 @@
 <script lang="ts">
-	import { isDropdown } from '../stores/dropdownStore';
-
+	let isDropdown = false;
 	let searchTerm = '';
 
 	const continents = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
+
+	const closeDropDown = (e: MouseEvent) => {
+		if (!e.target.classList.contains('filter')) {
+			isDropdown = false;
+		}
+	};
+
+	// const dropDown = () => {
+	// 	console.log(isDropdown);
+	// 	isDropdown = !isDropdown;
+	// 	console.log(isDropdown);
+	// };
 </script>
+
+<svelte:window on:click={closeDropDown} />
 
 <div class="px-4 py-6 md:px-6 lg:px-8 flex justify-between items-center">
 	<div
@@ -31,20 +44,20 @@
 		/>
 	</div>
 
-	<div class="relative inline-block text-left w-1/5">
-		<div>
+	<div class="filter relative inline-block text-left w-1/5 ">
+		<div class="filter">
 			<button
-				on:click={() => ($isDropdown = !$isDropdown)}
+				on:click={() => (isDropdown = !isDropdown)}
 				type="button"
-				class="inline-flex justify-between items-center w-full rounded-md drop-shadow-md p-4 bg-white dark:bg-darkBlue"
+				class="filter inline-flex justify-between items-center w-full rounded-md drop-shadow-md p-4 bg-white dark:bg-darkBlue"
 				id="menu-button"
 				aria-expanded="true"
 				aria-haspopup="true"
 			>
-				<span>Filter by Region</span>
-				<span>
+				<span class="filter">Filter by Region</span>
+				<span class="filter">
 					<svg
-						class="ml-2 w-4 h-4"
+						class="ml-2 w-4 h-4 filter"
 						aria-hidden="true"
 						fill="none"
 						stroke="currentColor"
@@ -52,6 +65,7 @@
 						xmlns="http://www.w3.org/2000/svg"
 					>
 						<path
+							class="filter"
 							stroke-linecap="round"
 							stroke-linejoin="round"
 							stroke-width="2"
@@ -72,8 +86,9 @@
       From: "transform opacity-100 scale-100"
       To: "transform opacity-0 scale-95"
   -->
+
 		<div
-			class="{$isDropdown ? '' : 'hidden'} 
+			class="{isDropdown ? '' : 'hidden'} 
 				z-10 origin-top-left absolute left-1 right-1 mt-3 shadow-lg bg-white dark:bg-darkBlue rounded-md"
 			role="menu"
 			aria-orientation="vertical"

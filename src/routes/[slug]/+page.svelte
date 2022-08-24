@@ -117,9 +117,3 @@
 		</div>
 	</section>
 </div>
-
-<style>
-	.grid {
-		grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-	}
-</style>

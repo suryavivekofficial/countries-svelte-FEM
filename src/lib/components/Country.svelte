@@ -1,18 +1,9 @@
 <script lang="ts">
-	// import { countrySelected } from '../stores/countryStore';
-
-	const selectCountry = () => {
-		// console.log(country.cca2);
-		// countrySelected.set(country.cca2);
-		// console.log($countrySelected);
-		window.location.replace(`/${country.cca2}`);
-	};
-
 	export let country: any;
 </script>
 
 <div
-	on:click={selectCountry}
+	on:click={() => window.location.replace(`/${country.cca2}`)}
 	class="bg-white dark:bg-darkBlue rounded-md drop-shadow-md cursor-pointer hover:scale-105 duration-300"
 >
 	<div class="rounded-t-md h-1/2">
