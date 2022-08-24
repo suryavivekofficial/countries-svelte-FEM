@@ -4,9 +4,22 @@
 	import { countries } from '$lib/stores/countryStore';
 
 	let searchTerm = '';
+	let selectedContinent = '';
 
 	let searchedCountries: any[] = [];
 
+	//Filtering
+	$: {
+		if (selectedContinent) {
+			searchedCountries = $countries.filter((country) =>
+				country.region.toLowerCase().includes(selectedContinent.toLowerCase())
+			);
+		} else {
+			searchedCountries = [...$countries];
+		}
+	}
+
+	// Searching
 	$: {
 		if (searchTerm) {
 			searchedCountries = $countries.filter((country) =>
@@ -18,7 +31,7 @@
 	}
 </script>
 
-<Search bind:searchTerm />
+<Search bind:searchTerm bind:selectedContinent />
 
 <div class="grid gap-16 px-8 rounded mt-16 relative">
 	{#each searchedCountries as country}

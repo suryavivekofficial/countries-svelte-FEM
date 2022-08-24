@@ -1,6 +1,8 @@
 <script lang="ts">
-	let isDropdown = false;
 	export let searchTerm = '';
+	export let selectedContinent = '';
+
+	let isDropdown = false;
 
 	const continents = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
 
@@ -70,17 +72,6 @@
 			</button>
 		</div>
 
-		<!--
-    Dropdown menu, show/hide based on menu state.
-
-    Entering: "transition ease-out duration-100"
-      From: "transform opacity-0 scale-95"
-      To: "transform opacity-100 scale-100"
-    Leaving: "transition ease-in duration-75"
-      From: "transform opacity-100 scale-100"
-      To: "transform opacity-0 scale-95"
-  -->
-
 		<div
 			class="{isDropdown ? '' : 'hidden'} 
 				z-10 origin-top-left absolute left-1 right-1 mt-3 shadow-lg bg-white dark:bg-darkBlue rounded-md"
@@ -91,13 +82,15 @@
 		>
 			<div class="p-1 bg-white dark:bg-darkBlue rounded-md" role="none">
 				{#each continents as continent}
-					<a
-						href="/"
-						class="text-darkBlueText dark:text-white block px-4 py-2 text-sm hover:bg-lightGray dark:hover:bg-darkBlueBg"
+					<button
+						on:click={() => (selectedContinent = continent)}
+						class="text-darkBlueText dark:text-white w-full text-left block px-4 py-2 text-sm hover:bg-lightGray dark:hover:bg-darkBlueBg"
 						role="menuitem"
 						tabindex="-1"
-						id="menu-item-0">{continent}</a
+						id="menu-item-0"
 					>
+						{continent}
+					</button>
 				{/each}
 			</div>
 		</div>
