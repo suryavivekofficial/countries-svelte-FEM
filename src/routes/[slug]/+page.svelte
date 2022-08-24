@@ -22,13 +22,15 @@
 			</svg>
 		</span><span>Back</span>
 	</a>
-	<section class="flex justify-between items-center px-16 py-8">
+	<section
+		class="flex flex-col lg:flex-row md:flex-row  justify-between items-center py-8 lg:px-16"
+	>
 		<div>
 			<img src={data.img} alt={data.name} />
 		</div>
-		<div class="flex flex-col space-y-8 w-1/2">
-			<h4 class="font-bold text-xl">{data.name}</h4>
-			<div class="flex justify-between">
+		<div class="flex flex-col lg:space-y-8 md:space-y-8 lg:w-1/2 md:w-1/2 w-full">
+			<h4 class="font-bold text-xl my-4 md:my-0 lg:my-0">{data.name}</h4>
+			<div class="flex flex-col lg:flex-row md:flex-row justify-between">
 				<div>
 					<h6 class="font-semibold">
 						Native name:
