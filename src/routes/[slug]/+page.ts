@@ -3,7 +3,6 @@ export async function load({ params, fetch }) {
 		const res = await fetch(`https://restcountries.com/v3.1/alpha/${params.slug}`);
 		const data = await res.json();
 		const country = data[0];
-		console.log(country.borders);
 		return {
 			name: country.name.common,
 			nativeName: country.name.nativeName,
