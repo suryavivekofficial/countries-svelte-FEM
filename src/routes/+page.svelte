@@ -1,14 +1,27 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import Country from '$lib/components/Country.svelte';
 	import Search from '$lib/components/Search.svelte';
 	import { countries } from '$lib/stores/countryStore';
+
+	let searchTerm = '';
+
+	let searchedCountries: any[] = [];
+
+	$: {
+		if (searchTerm) {
+			searchedCountries = $countries.filter((country) =>
+				country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
+			);
+		} else {
+			searchedCountries = [...$countries];
+		}
+	}
 </script>
 
-<Search />
+<Search bind:searchTerm />
 
 <div class="grid gap-16 px-8 rounded mt-16 relative">
-	{#each $countries as country}
+	{#each searchedCountries as country}
 		<Country {country} />
 	{:else}
 		<div type="button" class=" absolute right-1/2 top-1/3 translate-x-2/4" disabled>

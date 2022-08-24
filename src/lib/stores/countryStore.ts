@@ -14,4 +14,3 @@ const fetchCountries = async () => {
 };
 
 fetchCountries();
-countrySelected.subscribe((value) => console.log(value));

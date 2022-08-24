@@ -1,6 +1,6 @@
 <script lang="ts">
 	let isDropdown = false;
-	let searchTerm = '';
+	export let searchTerm = '';
 
 	const continents = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
 
@@ -9,12 +9,6 @@
 			isDropdown = false;
 		}
 	};
-
-	// const dropDown = () => {
-	// 	console.log(isDropdown);
-	// 	isDropdown = !isDropdown;
-	// 	console.log(isDropdown);
-	// };
 </script>
 
 <svelte:window on:click={closeDropDown} />
