@@ -15,9 +15,11 @@
 
 <svelte:window on:click={closeDropDown} />
 
-<div class="px-4 py-6 md:px-6 lg:px-8 flex justify-between items-center">
+<div
+	class="px-4 py-6 md:px-6 lg:px-8 flex md:justify-between md:items-center lg:justify-between lg:items-center flex-col md:flex-row lg:flex-row space-y-4 md:space-y-0 lg:space-y-0"
+>
 	<div
-		class="bg-white dark:bg-darkBlue rounded-md flex space-x-4 px-4 justify-around items-center drop-shadow-md w-1/3"
+		class="bg-white dark:bg-darkBlue rounded-md flex space-x-4 px-4 justify-around items-center drop-shadow-md lg:w-1/3 md:w-1/2 w-full"
 	>
 		<span>
 			<svg
@@ -40,7 +42,7 @@
 		/>
 	</div>
 
-	<div class="filter relative inline-block text-left w-1/5 ">
+	<div class="filter relative inline-block text-left lg:w-1/5 md:w-1/4 w-2/3">
 		<div class="filter">
 			<button
 				on:click={() => (isDropdown = !isDropdown)}
